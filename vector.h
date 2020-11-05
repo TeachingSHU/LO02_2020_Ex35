@@ -54,6 +54,8 @@ template<class T> TD::Vector<T>::~Vector(){
 }
 
 template<class T> T& TD::Vector<T>::element(unsigned int i){
+    // On utilise l’opéeateur de réeolution de portee Container<T> car certaines spécialisations de Container<T> pourraient ne pas contenir cet attribut (heritage prive ou autre)
+    // donc on s’engage ici avec le compilateur à n’utiliser que des spécialisations qui auront toujours cet attribut
     if (i<Container<T>::nb) return tab[i];
         throw ContainerException("erreur Vector : demande hors limite");
 }
