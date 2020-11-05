@@ -9,16 +9,16 @@ using namespace std;
 namespace TD {
 
     class ContainerException : public exception {
-    protected :
+    protected: // remplacer private par protected
         string info;
     public:
         ContainerException(const string& i="") noexcept :info(i){}
         const char* what() const noexcept { return info.c_str(); }
-    ~ContainerException()noexcept{}
+        ~ContainerException()noexcept{}
     };
 
     template<class T> class Container {
-    private:
+    protected:
         unsigned int nb; // Nombre d'elements dans le conteneur
 
     public:
